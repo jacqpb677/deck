@@ -50,11 +50,15 @@ function App() {
       <h3>
         We are currently <u>hard-coded</u> for push-up, flutter kick, overhead
         press, pull-up and 50-meter dash.
+        <br></br>
+        Next step: the user enters an interval and checks boxes to denote which
+        exercises will show.
       </h3>
       <br></br>
       {active === true ? (
         <button
           type="button"
+          class="btn"
           onClick={() => {
             setCard(card + 1);
             console.log("variable CARDS =", cards);
@@ -62,12 +66,12 @@ function App() {
               setActive(false);
             }
           }}
-          disabled={card === cards.length}
         >
           HIT IT.
         </button>
       ) : (
         <button
+          class="btn"
           type="button"
           onClick={() => {
             setCard(0);
@@ -79,7 +83,9 @@ function App() {
       )}
       {cards && cards.length && card < cards.length ? (
         <div>
-          <div>{cards[card][0]}</div>
+          <div class="numba">
+            <h1>{cards[card][0]}</h1>
+          </div>
           <div>
             <img src={gifs[cards[card][1]]} alt="wheee!"></img>
           </div>
